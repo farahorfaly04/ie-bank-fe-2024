@@ -25,9 +25,11 @@
               <tr>
                 <th scope="col">Account Name</th>
                 <th scope="col">Account Number</th>
+                <th scope="col">Country</th>
                 <th scope="col">Account Balance</th>
                 <th scope="col">Account Currency</th>
                 <th scope="col">Account Status</th>
+                <th scope="col">Country</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -47,6 +49,7 @@
                     account.status
                   }}</span>
                 </td>
+                <td>{{ account.country }}</td> 
                 <td>
                   <div class="btn-group" role="group">
                     <button
@@ -111,6 +114,20 @@
             </b-form-input>
           </b-form-group>
 
+          <b-form-group
+            id="form-country-group"
+            label="Country:"
+            label-for="form-country-input"
+          >
+            <b-form-input
+              id="form-country-input"
+              type="text"
+              v-model="createAccountForm.country"
+              placeholder="Country"
+              required
+            ></b-form-input>
+          </b-form-group>
+
           <b-button type="submit" variant="outline-info">Submit</b-button>
         </b-form>
       </b-modal>
@@ -156,6 +173,7 @@ export default {
       createAccountForm: {
         name: "",
         currency: "",
+        country: "",
       },
       editAccountForm: {
         id: "",
@@ -268,6 +286,7 @@ export default {
       const payload = {
         name: this.createAccountForm.name,
         currency: this.createAccountForm.currency,
+        country: this.createAccountForm.country,
       };
       this.RESTcreateAccount(payload);
       this.initForm();
