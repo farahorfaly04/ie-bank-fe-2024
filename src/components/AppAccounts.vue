@@ -25,7 +25,7 @@
               <tr>
                 <th scope="col">Account Name</th>
                 <th scope="col">Account Number</th>
-                <th scope="col">Country</th>
+                <th scope="col">Account Country</th>
                 <th scope="col">Account Balance</th>
                 <th scope="col">Account Currency</th>
                 <th scope="col">Account Status</th>
@@ -124,7 +124,8 @@
               v-model="createAccountForm.country"
               placeholder="Country"
               required
-            ></b-form-input>
+            >
+            </b-form-input>
           </b-form-group>
 
           <b-button type="submit" variant="outline-info">Submit</b-button>
@@ -273,6 +274,7 @@ export default {
     // Initialize forms empty
     initForm() {
       this.createAccountForm.name = "";
+      this.createAccountForm.country = "";
       this.createAccountForm.currency = "";
       this.editAccountForm.id = "";
       this.editAccountForm.name = "";
