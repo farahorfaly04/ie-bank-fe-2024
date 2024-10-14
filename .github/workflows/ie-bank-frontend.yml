@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  FRONTEND_WEBAPP_DEV: forfaly-fe-dev
-  FRONTEND_WEBAPP_UAT: forfaly2-fe-uat
+  FRONTEND_WEBAPP_DEV: forfaly3-fe-dev
+  FRONTEND_WEBAPP_UAT: forfaly3-fe-uat
 
 
 jobs:
