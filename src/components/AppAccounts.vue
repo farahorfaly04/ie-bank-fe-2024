@@ -29,7 +29,6 @@
                 <th scope="col">Account Balance</th>
                 <th scope="col">Account Currency</th>
                 <th scope="col">Account Status</th>
-                <th scope="col">Country</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -37,6 +36,7 @@
               <tr v-for="account in accounts" :key="account.id">
                 <td>{{ account.name }}</td>
                 <td>{{ account.account_number }}</td>
+                <td>{{ account.account_country }}</td> 
                 <td>{{ account.balance }}</td>
                 <td>{{ account.currency }}</td>
                 <td>
@@ -49,7 +49,6 @@
                     account.status
                   }}</span>
                 </td>
-                <td>{{ account.country }}</td> 
                 <td>
                   <div class="btn-group" role="group">
                     <button
@@ -188,18 +187,18 @@ export default {
      * RESTful requests
      ***************************************************/
 
-    //GET function
-    RESTgetAccounts() {
-      const path = `${process.env.VUE_APP_ROOT_URL}/accounts`;
-      axios
-        .get(path)
-        .then((response) => {
-          this.accounts = response.data.accounts;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
+  //GET function
+  RESTgetAccounts() {
+  const path = `${process.env.VUE_APP_ROOT_URL}/accounts`;
+  axios
+    .get(path)
+    .then((response) => {
+      this.accounts = response.data.accounts;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+},
 
     // POST function
     RESTcreateAccount(payload) {
